@@ -1481,7 +1481,24 @@ public:
                                    double eps,
                                    NTL::ZZX& noise) const;
 };
-
+inline Ctxt operator*(const helib::Ctxt& ctxt1, const helib::Ctxt& ctxt2)
+{
+  auto result = ctxt1;
+  result *= ctxt2;
+  return result;
+}
+inline Ctxt operator+(const helib::Ctxt& ctxt1, const helib::Ctxt& ctxt2)
+{
+  auto result = ctxt1;
+  result += ctxt2;
+  return result;
+}
+inline Ctxt operator-(const helib::Ctxt& ctxt1, const helib::Ctxt& ctxt2)
+{
+  auto result = ctxt1;
+  result -= ctxt2;
+  return result;
+}
 // set out=prod_{i=0}^{n-1} v[j], takes depth log n and n-1 products
 // out could point to v[0], but having it pointing to any other v[i]
 // will make the result unpredictable.
